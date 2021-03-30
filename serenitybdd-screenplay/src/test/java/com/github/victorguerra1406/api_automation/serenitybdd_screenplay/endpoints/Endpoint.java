@@ -1,4 +1,4 @@
-package com.github.victorguerra1406.api_automation.serenitybdd.endpoints;
+package com.github.victorguerra1406.api_automation.serenitybdd_screenplay.endpoints;
 
 public enum Endpoint {
     USERS("users"),

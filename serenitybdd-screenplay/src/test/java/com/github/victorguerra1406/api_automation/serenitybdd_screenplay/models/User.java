@@ -1,4 +1,4 @@
-package com.github.victorguerra1406.api_automation.serenitybdd.models;
+package com.github.victorguerra1406.api_automation.serenitybdd_screenplay.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.github.victorguerra1406.api_automation.serenitybdd.utils;
+package com.github.victorguerra1406.api_automation.serenitybdd_screenplay.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
