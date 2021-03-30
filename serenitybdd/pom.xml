@@ -11,24 +11,26 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEnconding>UTF-8</project.build.sourceEnconding>
+        <project.report.outputEnconding>UTF-8</project.report.outputEnconding>
     </properties>
 
     <dependencies>
         <dependency>
-			<groupId>net.serenity-bdd</groupId>
-			<artifactId>serenity-core</artifactId>
-			<version>2.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.serenity-bdd</groupId>
-			<artifactId>serenity-rest-assured</artifactId>
-			<version>2.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.serenity-bdd</groupId>
-			<artifactId>serenity-cucumber6</artifactId>
-			<version>2.4.0</version>
-		</dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber6</artifactId>
+            <version>2.4.0</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -63,7 +65,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -71,6 +73,22 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>${project.build.sourceEnconding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <encoding>${project.build.sourceEnconding}</encoding>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -83,7 +101,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>3.0.0-M5</version>
                 <executions>
                     <execution>
                         <goals>
@@ -96,10 +114,18 @@
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
+                    <!--                    <parallel>classes</parallel>-->
+                    <!--                    <threadCount>${parallel.tests}</threadCount>-->
+                    <!--                    <forkCount>2</forkCount>-->
                     <argLine>-Xmx1024m</argLine>
                     <systemProperties>
                         <surefire.rerunFailingTestsCount>0</surefire.rerunFailingTestsCount>
+                        <rp.endpoint>http://localhost:8080</rp.endpoint>
+                        <rp.uuid>16d263e7-6a7a-49f8-8751-5b6e670b69a3</rp.uuid>
+                        <rp.launch>zenity-api-execution</rp.launch>
+                        <rp.project>zenity_api</rp.project>
                     </systemProperties>
+                    <encoding>${project.report.outputEnconding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
